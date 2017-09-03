@@ -23,4 +23,17 @@
   	<module>taotao-manager-interface</module>
   	<module>taotao-manager-service</module>
   </modules>
+  
+  		<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<path>/</path>
+					<port>8086</port>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
