@@ -13,4 +13,13 @@
 	<!-- 配置包扫描器，扫描所有带@Service注解的类 -->
 	<context:component-scan base-package="com.taotao.service"/>
 	
+	<!-- 配置dubbo -->
+	<dubbo:application name="taotao-manager"/>
+	
+	<dubbo:registry protocol="zookeeper" address="192.168.0.103:2181"></dubbo:registry>
+	
+	<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+	
+	<dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl"></dubbo:service>
+	
 </beans>
