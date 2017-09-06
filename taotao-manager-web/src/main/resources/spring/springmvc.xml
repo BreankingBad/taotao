@@ -20,6 +20,9 @@
     		<property name="suffix" value=".jsp"></property>
     	</bean>
  
+ 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+ 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+ 	
     	<!-- 能支持springmvc更高级的功能，比如JSR303校验，快捷的ajax请求 -->
     	<mvc:annotation-driven/>
 
