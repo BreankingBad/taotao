@@ -34,6 +34,7 @@
 		<activemq.version>5.11.2</activemq.version>
 		<freemarker.version>2.3.23</freemarker.version>
 		<quartz.version>2.2.2</quartz.version>
+		<qiniu-sdk.version>7.2.6</qiniu-sdk.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -182,6 +183,11 @@
 				<groupId>commons-fileupload</groupId>
 				<artifactId>commons-fileupload</artifactId>
 				<version>${commons-fileupload.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qiniu</groupId>
+				<artifactId>qiniu-java-sdk</artifactId>
+				<version>${qiniu-sdk.version}</version>
 			</dependency>
 			<!-- Redis客户端 -->
 			<dependency>
