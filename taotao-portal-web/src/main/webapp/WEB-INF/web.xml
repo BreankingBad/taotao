@@ -12,7 +12,7 @@
   
   <display-name>taotao-portal-web</display-name>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	<!-- post乱码过滤器 -->
 	<filter>
