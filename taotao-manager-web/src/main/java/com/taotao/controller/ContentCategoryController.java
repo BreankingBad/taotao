@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.EasyUITreeNode;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentCategoryService;
 
 @Controller
@@ -22,5 +23,12 @@ public class ContentCategoryController {
 	public List<EasyUITreeNode> getContentCategoryList(@RequestParam(value="id",defaultValue="0")long parentId) {
 		List<EasyUITreeNode>  list = contentCategoryService.getContentCategoryList(parentId);
 		return list;
+	}
+	
+	@RequestMapping("/content/category/create")
+	@ResponseBody
+	public TaotaoResult addContentCategory(long parentId,String name) {
+		TaotaoResult result = contentCategoryService.addContentCategory(parentId, name);
+		return result;
 	}
 }
