@@ -35,6 +35,9 @@ public class ContentServiceImpl implements ContentService {
 		tbContent.setUpdated(new Date());
 		
 		tbcontentMapper.insert(tbContent);
+		
+		// 同步缓存，把对应的缓存删掉即可
+		jedisClient.hdel(INDEX_CONTENT, tbContent.getCategoryId().toString());
 		return TaotaoResult.ok();
 	}
 
@@ -59,6 +62,9 @@ public class ContentServiceImpl implements ContentService {
 		criteria.andCategoryIdEqualTo(categoryId);
 		
 		List<TbContent> contentList = tbcontentMapper.selectByExample(example);
+		
+		System.out.println("get list from db success!  categoryId:"+categoryId);
+
 		
 		try {
 			// 添加缓存
