@@ -28,7 +28,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.taotao</groupId>
-			<artifactId>taotao-search-service</artifactId>
+			<artifactId>taotao-search-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- JSP相关 -->

@@ -36,7 +36,7 @@ public class TestAddDocument {
 		SolrClient client = new HttpSolrClient.Builder("http://127.0.0.1:8983/solr/collection1").build();
 		
 		try {
-			client.deleteById("test001");
+			client.deleteById("test002");
 			client.commit();
 		} catch (SolrServerException e) {
 			// TODO Auto-generated catch block
