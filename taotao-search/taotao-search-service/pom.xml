@@ -95,7 +95,7 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- solr客户端 -->
+				<!-- solr客户端 -->
 		<dependency>
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>

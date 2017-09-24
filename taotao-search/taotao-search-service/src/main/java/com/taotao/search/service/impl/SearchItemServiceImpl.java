@@ -1,4 +1,4 @@
-package om.taotao.search.service.impl;
+package com.taotao.search.service.impl;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
 import com.taotao.common.pojo.SearchItem;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.search.mapper.SearchItemMapper;
-
-import om.taotao.search.service.SearchItemService;
+import com.taotao.search.service.SearchItemService;
 
 @Service
 public class SearchItemServiceImpl implements SearchItemService {
