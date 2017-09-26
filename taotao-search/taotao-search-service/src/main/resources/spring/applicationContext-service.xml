@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 	
 	<!-- 配置包扫描器，扫描所有带@Service注解的类 -->
-	<context:component-scan base-package="com.taotao.search.service"/>
+	<context:component-scan base-package="com.taotao.search"/>
 	
 	<!-- 配置dubbo -->
 	<dubbo:application name="taotao-search"/>
