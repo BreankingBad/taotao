@@ -24,6 +24,8 @@ public class SearchController {
 			Model model) {
 		
 		try {
+			keyword = new String(keyword.getBytes("iso8859-1"),"utf-8");
+			
 			SearchResult searchResult = searchService.search(keyword, page, SEARCH_DEFAULT_ROWS);
 			
 			model.addAttribute("query", keyword);
