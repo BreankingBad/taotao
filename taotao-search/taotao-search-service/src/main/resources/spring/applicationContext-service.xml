@@ -22,5 +22,6 @@
 	
 	<!-- 设置超时时间5分钟，避免调试的时候报错 -->
 	<dubbo:service interface="com.taotao.search.service.SearchItemService" ref="searchItemServiceImpl" timeout="300000"></dubbo:service>
+	<dubbo:service interface="com.taotao.search.service.SearchService" ref="searchServiceImpl" timeout="300000"></dubbo:service>
 	
 </beans>
