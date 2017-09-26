@@ -31,6 +31,8 @@ public class SearchServiceImpl implements SearchService {
 		// start是开始查询的第几条记录
 		solrQuery.setStart((page - 1) * rows);
 		solrQuery.setRows(rows);
+		
+		solrQuery.set("df", "item_title");
 
 		solrQuery.setHighlight(true);
 		solrQuery.addHighlightField("item_title");
