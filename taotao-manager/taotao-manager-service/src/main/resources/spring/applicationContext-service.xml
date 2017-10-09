@@ -16,7 +16,7 @@
 	<!-- 配置dubbo -->
 	<dubbo:application name="taotao-manager"/>
 	
-	<dubbo:registry protocol="zookeeper" address="192.168.0.103:2181"></dubbo:registry>
+	<dubbo:registry protocol="zookeeper" address="192.168.0.139:2181"></dubbo:registry>
 	
 	<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
 	

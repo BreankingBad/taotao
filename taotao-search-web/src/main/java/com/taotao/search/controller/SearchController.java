@@ -21,9 +21,9 @@ public class SearchController {
 	
 	@RequestMapping("/search")
 	public String search(@RequestParam("q")String keyword,@RequestParam(defaultValue="1")int page,
-			Model model) {
+			Model model) throws Exception{
+//		int a = 1/0;
 		
-		try {
 			keyword = new String(keyword.getBytes("iso8859-1"),"utf-8");
 			
 			SearchResult searchResult = searchService.search(keyword, page, SEARCH_DEFAULT_ROWS);
@@ -32,10 +32,10 @@ public class SearchController {
 			model.addAttribute("totalPages", searchResult.getTotalPages());
 			model.addAttribute("itemList", searchResult.getItemList());
 			model.addAttribute("page", page);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		
 		return "search";
