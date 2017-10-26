@@ -98,4 +98,10 @@ public class ItemServiceImpl implements ItemService {
 		return TaotaoResult.ok();
 	}
 
+	@Override
+	public TbItemDesc getIemDescById(long itemId) {
+		TbItemDesc tbItemDesc = itemDescMapper.selectByPrimaryKey(itemId);
+		return tbItemDesc;
+	}
+
 }
