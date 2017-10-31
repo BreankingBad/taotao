@@ -22,6 +22,11 @@
     		<property name="suffix" value=".jsp"></property>
     	</bean>
  
+ 	<!-- freeMarker配置 -->
+ 	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+ 		<property name="templateLoaderPath" value="/WEB-INF/ftl/"></property>
+ 		<property name="defaultEncoding" value="utf-8"></property>
+ 	</bean>
  	
     	<!-- 能支持springmvc更高级的功能，比如JSR303校验，快捷的ajax请求 -->
     	<mvc:annotation-driven/>
