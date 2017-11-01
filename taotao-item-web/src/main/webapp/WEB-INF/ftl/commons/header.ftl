@@ -1,6 +1,6 @@
 <script type="text/javascript" src="/js/base-v1.js" charset="utf-8"></script>
 <!--shortcut start-->
-<#include "shortcut.ftl " />
+<#include "shortcut.ftl" />
 <!--shortcut end-->
 <div id="o-header-2013">
 	<div class="w" id="header-2013">
