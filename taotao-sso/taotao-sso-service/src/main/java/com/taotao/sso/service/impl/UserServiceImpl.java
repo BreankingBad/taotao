@@ -138,7 +138,8 @@ public class UserServiceImpl implements UserService {
 		if(StringUtils.isBlank(json)) {
 			TaotaoResult.build(400, "登录已失效");
 		}
-		
+		// 重置token的过期时间
+		jedisClient.expire(tokenRedisKey, SESSION_EXPIRE);
 		TbUser user = JsonUtils.jsonToPojo(json, TbUser.class);
 		return TaotaoResult.ok(user);
 	}
