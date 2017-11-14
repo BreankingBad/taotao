@@ -16,6 +16,11 @@
     <!-- 加载属性文件 -->
     <context:property-placeholder location="classpath:resource/resource.properties"/>
     
+    <!-- 配置资源映射 -->
+    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"></mvc:resources>
+    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
+    <mvc:resources location="/WEB-INF/images/" mapping="/images/**"></mvc:resources>
+    
     <!-- 配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     		<property name="prefix" value="/WEB-INF/jsp/"></property>
