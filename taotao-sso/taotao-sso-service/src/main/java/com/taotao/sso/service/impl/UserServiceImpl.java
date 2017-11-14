@@ -131,4 +131,16 @@ public class UserServiceImpl implements UserService {
 		return TaotaoResult.ok(token);
 	}
 
+	@Override
+	public TaotaoResult getUserInfoByToken(String token) {
+		String tokenRedisKey = KEY_SESSION + ":" + token;
+		String json = jedisClient.get(tokenRedisKey);
+		if(StringUtils.isBlank(json)) {
+			TaotaoResult.build(400, "登录已失效");
+		}
+		
+		TbUser user = JsonUtils.jsonToPojo(json, TbUser.class);
+		return TaotaoResult.ok(user);
+	}
+
 }
