@@ -3,8 +3,10 @@ package com.taotao.sso.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.CookieUtils;
+import com.taotao.common.utils.JsonUtils;
 import com.taotao.pojo.TbUser;
 import com.taotao.sso.service.UserService;
 
@@ -44,15 +47,23 @@ public class UserController {
 	public TaotaoResult login(String username, String password,HttpServletRequest request,HttpServletResponse response) {
 		TaotaoResult taotaoResult = userService.login(username, password);
 		
-		CookieUtils.setCookie(request,response,TT_TOKEN,taotaoResult.getData().toString());
+		// 登录成功才写cookie
+		if(taotaoResult.getStatus() == 200) {
+			CookieUtils.setCookie(request,response,TT_TOKEN,taotaoResult.getData().toString());
+		}
 		return taotaoResult;
 	}
 	
-	@RequestMapping(value="/token/{token}",method=RequestMethod.GET)
+	@RequestMapping(value="/user/token/{token}",method=RequestMethod.GET,
+			// 指定响应数据的content-type
+			produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public TaotaoResult getUserInfoByToken(@PathVariable String token) {
+	public String getUserInfoByToken(@PathVariable String token, String callback) {
 		TaotaoResult taotaoResult = userService.getUserInfoByToken(token);
-		return taotaoResult;
+		if (StringUtils.isNotBlank(callback)) {
+			return callback + "(" + JsonUtils.objectToJson(taotaoResult) + ");";
+		}
+		return JsonUtils.objectToJson(taotaoResult);
 	}
 
 }
