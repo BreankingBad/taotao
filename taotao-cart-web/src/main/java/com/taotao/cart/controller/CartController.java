@@ -95,4 +95,23 @@ public class CartController {
 		CookieUtils.setCookie(request, response, CART_KEY, JsonUtils.objectToJson(itemList) , CART_EXPIRE , true);
 		return TaotaoResult.ok();
 	}
+	
+	@RequestMapping("/cart/delete/{itemId}")
+	public String deleteCartItem(@PathVariable long itemId,HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		List<TbItem> itemList = getItemList(request);
+		
+		for (TbItem tbItem : itemList) {
+			if(tbItem.getId() == itemId) {
+				itemList.remove(tbItem);
+				break;
+			}
+		}
+		
+		CookieUtils.setCookie(request, response, CART_KEY, JsonUtils.objectToJson(itemList) , CART_EXPIRE , true);
+		
+		// 重定向到购物车列表页面
+		return "redirect:/cart/cart.html";
+	}
 }
