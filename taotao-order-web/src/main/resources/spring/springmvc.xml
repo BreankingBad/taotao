@@ -26,12 +26,17 @@
     	<!-- 能支持springmvc更高级的功能，比如JSR303校验，快捷的ajax请求 -->
     	<mvc:annotation-driven/>
 
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+    		<mvc:interceptor>
+    			<mvc:mapping path="/order/**"/>
+    			<bean class="com.taotao.order.interceptor.LoginInterceptor "></bean>
+    		</mvc:interceptor>
+    </mvc:interceptors>
     
         		<!-- 配置dubbo -->
 	<dubbo:application name="taotao-order-web"/>
 	
 	<dubbo:registry protocol="zookeeper" address="192.168.0.139:2181" />
-<!-- 	
-	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentService" /> -->
-<!-- 	<dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatService" /> -->
+	<dubbo:reference interface="com.taotao.sso.service.UserService" id="userService" />
 </beans>

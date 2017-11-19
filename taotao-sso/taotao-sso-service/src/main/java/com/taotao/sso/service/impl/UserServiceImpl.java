@@ -134,9 +134,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public TaotaoResult getUserInfoByToken(String token) {
 		String tokenRedisKey = KEY_SESSION + ":" + token;
+		
+		System.out.println("getUserInfoByToken tokenRedisKey: "+ tokenRedisKey);
 		String json = jedisClient.get(tokenRedisKey);
+		
+		System.out.println("getUserInfoByToken json: "+ json);
 		if(StringUtils.isBlank(json)) {
-			TaotaoResult.build(400, "登录已失效");
+			return TaotaoResult.build(400, "登录已失效");
 		}
 		// 重置token的过期时间
 		jedisClient.expire(tokenRedisKey, SESSION_EXPIRE);
