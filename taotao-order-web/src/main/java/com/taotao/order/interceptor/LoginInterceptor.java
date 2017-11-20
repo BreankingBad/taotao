@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.CookieUtils;
+import com.taotao.pojo.TbUser;
 import com.taotao.sso.service.UserService;
 
 public class LoginInterceptor implements HandlerInterceptor {
@@ -29,18 +30,21 @@ public class LoginInterceptor implements HandlerInterceptor {
 	   // 返回true 放行， 返回false 拦截
 		
 		boolean isLogin = false;
+		TbUser tbUser = null;
 		
 		String token = CookieUtils.getCookieValue(request, TT_TOKEN);
 		if(StringUtils.isNoneBlank(token)) {
 			TaotaoResult result = userService.getUserInfoByToken(token);
 			if(result.getStatus() == 200) {
 				isLogin = true;
+				tbUser = (TbUser) result.getData();
 			}
 		}
 		
 		System.out.println("islogin:"+isLogin);
 		
 		if(isLogin) {
+			request.setAttribute("user", tbUser);
 			return true;
 		}else {
 			String url = request.getRequestURL().toString();

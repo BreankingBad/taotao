@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.taotao.common.utils.CookieUtils;
 import com.taotao.common.utils.JsonUtils;
 import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbUser;
 
 @Controller
 public class OrderCartController {
@@ -22,6 +23,9 @@ public class OrderCartController {
 	
 	@RequestMapping("/order/order-cart")
 	public String showOrderCart(HttpServletRequest request) {
+		TbUser user = (TbUser) request.getAttribute("user");
+		System.out.println("showOrderCart:"+user.getUsername());
+		
 		List<TbItem> itemList = getItemList(request);
 		request.setAttribute("cartList", itemList);
 		return "order-cart";
