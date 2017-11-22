@@ -20,8 +20,7 @@
 	
 	<dubbo:protocol name="dubbo" port="20884"></dubbo:protocol>
 	
-<!-- 	<!-- 设置超时时间5分钟，避免调试的时候报错 -->
-	<dubbo:service interface="com.taotao.content.service.ContentCategoryService" ref="contentCategoryServiceImpl" timeout="300000"></dubbo:service>
-	<dubbo:service interface="com.taotao.content.service.ContentService" ref="contentServiceImpl" timeout="300000"></dubbo:service> -->
+	<!-- 设置超时时间5分钟，避免调试的时候报错 -->
+	<dubbo:service interface="com.taotao.order.service.OrderService" ref="orderServiceImpl" timeout="300000"></dubbo:service>
 	
 </beans>
