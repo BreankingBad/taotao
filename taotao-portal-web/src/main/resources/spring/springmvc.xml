@@ -30,7 +30,7 @@
         		<!-- 配置dubbo -->
 	<dubbo:application name="taotao-portal-web"/>
 	
-	<dubbo:registry protocol="zookeeper" address="192.168.0.139:2181" />
+	<dubbo:registry protocol="zookeeper" address="192.168.1.139:2181" />
 	
 	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentService" />
 <!-- 	<dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatService" /> -->

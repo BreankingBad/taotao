@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 	
 	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-		<constructor-arg name="brokerURL" value="tcp://192.168.0.139:61616"></constructor-arg>
+		<constructor-arg name="brokerURL" value="tcp://192.168.1.139:61616"></constructor-arg>
 	</bean>	
 	
 	<bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
